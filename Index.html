@@ -1,0 +1,766 @@
+            <html>
+
+            <head>
+                <title>A smarter way to shop is here</title>
+
+                <!--Vendor js files -->
+                <script src="js/vendor/jquery-1.11.2.min.js"></script>
+                <script src="js/vendor/jquery.nicescroll.min.js"></script>
+                <script type="text/javascript" src="js/vendor/modernizr.js"></script>
+                <script type="text/javascript" src="js/vendor/rubick_pres.js"></script>
+                <script type="text/javascript" src="js/vendor/bootstrap.js"></script>
+                <script type="text/javascript" src="js/vendor/jquery-ui.js"></script>
+                <script type="text/javascript" src="js/vendor/wow.min.js"></script>    
+                <script type="text/javascript" src="js/vendor/jquery.scrollUp.min.js"></script>
+                <script type="text/javascript" src="js/jR3DCarousel.min.js"></script>
+
+                <!-- Vendor css files -->
+                <link rel="stylesheet" type="text/css" href="css/vendor/animate.css">
+                <link rel="stylesheet" type="text/css" href="css/vendor/jquery-ui.css">
+                <link href="css/vendor/bootstrap-responsive.min.css" rel="stylesheet">
+                <link href="css/vendor/font-awesome.css" rel="stylesheet">
+                <link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.css">
+
+                <!-- User scripts -->
+                <script type="text/javascript" src="js/user/main.js"></script>
+                <script type="text/javascript" src="js/user/custom.js"></script>
+
+                <!--User Css files -->
+                <link rel="stylesheet" type="text/css" href="css/user/main.css">
+                    <!-- /* Media queries */ -->
+                <link rel="stylesheet" type="text/css" href="css/user/style.css">
+    <!--            3D image slider    -->
+                <script type="text/javascript">
+    $(document).ready(function(){
+        var slides = [{src: 'css/images/images1.jpg'}, {src: 'css/images/images2.jpg'}, {src: 'css/images/images3.jpg'}]
+
+        var carouselProps =  {
+                          width: 1920, 				/* largest allowed width */
+                          height: 700, 				/* largest allowed height */
+                          slideLayout : 'fill',     /* "contain" (fit according to aspect ratio), "fill" (stretches object to fill) and "cover" (overflows box but maintains ratio) */
+                          animation: 'fade', 		/* slide | scroll | fade | zoomInSlide | zoomInScroll */
+                          animationCurve: 'ease',
+                          animationDuration: 2500,
+                          animationInterval: 4000,
+                          //autoplay: false,
+                          onSlideShow: show,		/* callback when Slide show event occurs */
+                          navigation: 'circles',	/* circles | squares */
+                          slides: slides 			/* array of images source or gets slides by 'slide' class */
+
+                    }
+        function setUp(){
+            $('.jRCarouselGallery').jR3DCarousel(carouselProps);
+//            $('.howit').css("padding-top","10%");
+            $('.heading-secondpage').css("text-align","center");
+            $('.settings').html('<pre>$(".jRCarouselGallery").jR3DCarousel('+JSON.stringify(carouselProps, null, 4)+')</pre>')
+        }
+        function show(slide){
+            console.log("Slide shown: ", slide.find('img').attr('src'))
+        }
+        $('.carousel-props input').change(function(){
+            carouselProps[this.name] = this.value || null; 
+            for(var i = 0; i < 999; i++)
+             clearInterval(i);
+            var slides = $('.jRCarouselGallery').find('.slide'); $('.jRCarouselGallery').empty();/* $('.jRCarouselGallery').append(slides); */ 
+            setUp();
+        })
+
+        $('[name=slides]').change(function(){
+            carouselProps[this.name] = getSlides(this.value); 
+            for (var i = 0; i < 9999; i++)
+             clearInterval(i);
+            $('.jRCarouselGallery').empty(); setUp();
+        });
+
+        function getSlides(no){
+            slides = [];
+            for ( var i = 0; i < no; i++) {
+                slides.push({src: 'https://unsplash.it/'+Math.floor(1366-Math.random()*200)+'/'+Math.floor(768+Math.random()*200)})
+            }
+            return slides;
+        }
+
+        //carouselProps.slides = getSlides(7);
+        setUp()
+
+      })
+    </script>
+
+            </head>
+
+            <body class="index" id="page-top" data-spy="scroll" data-target=".navbar-custom">
+                <!-- Navbar
+                ================================================== -->
+                <nav class="navbar navbar-custom navbar-fixed-top" role="navigation" id="navbar1">
+                    <div class="container">
+                        <div class="navbar-header page-scroll">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <a class="navbar-brand" href="index.html">
+                                <div id="logo"></div>
+                            </a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                           <ul class="nav navbar-nav blue">
+                                <li><a href="#" class="current">Home</a></li>
+                                <li><a href="#aboutus">Our Product</a></li>
+                                <li><a href="#howitworks">How it works</a></li>
+                                <li><a href="#faqs">FAQs</a></li>
+                                <!-- <li><a href="#testimonial">Testimonials</a></li> -->
+                                  <li><a href="#team">Meet The Team</a></li> 
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container -->
+                </nav>
+                <div>
+                    <section id="landing">
+                        <div class="rsABlock zapContent" data-fade-effect="false">
+                            <div class="infoBlockLeftWhite gradient rightAlign">
+                                <h1>A smarter way to shop</h1>
+                            </div>
+                            <div class="clr"></div>
+                            <div class="regNow noHover">just Select. Scan. Pay!</div>
+                        </div>
+                        <div class="container" id="first-page">
+<!--
+                            <div id="phone-content">
+                                <div class="carousel main-page">
+                                    <a class=""></a>
+                                    <a class="active"></a>
+                                    <a class=""></a>
+                                    <a class=""></a>
+                                    <a class=""></a>
+                                </div>
+                                <div class="phone">
+                                    <div class="screen">
+                                        <div class="screen-1 old" style="left: -100%;"></div>
+                                        <div class="screen-2 active" style="left: 0px;"></div>
+                                        <div class="screen-3" style="left: -100%;"></div>
+                                        <div class="screen-4" style="left: -100%;"></div>
+                                        <div class="screen-5" style="left: -100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+-->
+                            <div class="appstores">
+                                <a href="http://play.google.com/store/apps/details?id=com.google.android.apps.maps" target="_blank"><div description="Home | Download via Google Play" class="android"></div></a>
+                            </div>
+                        </div>
+                </div>
+                </section>
+                <section id="forms">
+        <!--
+                    <div class="row">
+                        <div class="span10 offset1">
+                            <h3 id="second-id">We provide a hassle free payment option for your retail store</h3>
+                              <form class="well form-search">
+                               We are soon launching our services. Stay connected.
+                           </form> 
+                        </div>
+                    </div>
+        -->
+                </section>
+                <br>
+                <br>
+                <section class="snipeBillsIntro Fadein" id="aboutus">
+
+                    <div class="heading-about">
+                        <div class="row" style="padding-top: 20px;">
+                               <div class="col-sm-4 col-md-offset-4">
+                                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                                        <div class="section-heading">
+                                            <h2>Product Features</h2>
+                                        </div>
+                                    </div>
+                            </div>
+                          </div>
+
+                    </div>
+                    <!-- page content start -->
+                    <div class="subMenuHolder Fadein" style="display: block;">
+                        <ul class="tabrow">
+                            <li class="snipebills Retailers selected">SnipeBills for Retailers</li>
+                            <li class="snipebills You">SnipeBills for You</li>
+                        </ul>
+                    </div>
+                    <div class="snipebillsForRetailers">
+                        <div class="clr"></div>
+                        <div class="container Fadein">
+                            <div class="page">
+                                <div class="sectionSingle centreMe">
+                                    <h2>A revolutionary payment system for your store</h2>
+                                    <p class="topOfSection">SnipeBills is secure, convenient and reliable. It allows your customers to use their smartphones to make payment everywhere they go.</p>
+                                    <p><strong>Its Revolutionary Features:</strong></p>
+                                    <div class="spacer"></div>
+                                    <div class="one-third">
+                                        <div class="spacer"></div>
+                                        <div class="spacer"></div>
+                                        <li><strong>Pay using smartphone</strong></li>
+                                    </div>
+                                    <div class="one-third">
+                                        <div class="spacer"></div>
+                                        <div class="spacer"></div>
+                                        <li><strong>Realtime Offers, Loyalties, Credit</strong></li>
+                                    </div>
+                                    <div class="one-third">
+                                        <div class="spacer"></div>
+                                        <div class="spacer"></div>
+                                        <li><strong>Quick and Easy to use</strong></li>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="snipebillsForCustomers hidden">
+                        <div class="clr"></div>
+                        <div class="container Fadein">
+                            <div class="page">
+                                <div class="sectionSingle centreMe">
+                                    <h2>Feel the power in your hand</h2>
+                                    <p class="topOfSection">With SnipeBills you can shop with great ease. All you need is your smartphone with our app installed.</p>
+                                    <p><strong>Next generation Features:</strong></p>
+                                    <div class="spacer"></div>
+                                    <div class="one-third">
+                                        <div class="spacer"></div>
+                                        <div class="spacer"></div>
+                                        <li><strong>No Cash or Card</strong></li>
+                                    </div>
+                                    <div class="one-third">
+                                        <div class="spacer"></div>
+                                        <div class="spacer"></div>
+                                        <li><strong>Quick, Fast and Easy to use</strong></li>
+                                    </div>
+                                    <div class="one-third">
+                                        <div class="spacer"></div>
+                                        <div class="spacer"></div>
+                                        <li><strong>Get Credit, Offers , loyalties</strong></li>
+                                    </div><br><br>
+                                    <div class="one-third">
+                                        <div class="spacer"></div>
+                                        <div class="spacer"></div>
+                                        <li><strong>Locate the store and start shopping</strong></li>
+                                    </div>
+                                    <div class="one-third">
+                                        <div class="spacer"></div>
+                                        <div class="spacer"></div>
+                                        <li><strong>Works on all smartphones</strong></li>
+                                    </div>
+                                    <div class="one-third">
+                                        <div class="spacer"></div>
+                                        <div class="spacer"></div>
+                                        <li><strong>Supports all major banks, cards & mobile wallets</strong></li>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="merchant-list">
+                    <div class="width-container">
+                        <h2>Download SnipeBills now and enjoy hassle free payments</h2>
+                        <p class="more">Now available in Hyderabad.</p>
+                </section>
+                <section id="howitworks" style="top: 20%">
+                    <div id="second-page">
+                        <div class="container heading-secondpage">
+                            <div class="wow bounceInDown" data-wow-delay="0.4s">
+                            <div class="row row-centered">
+                                <h2>How it works?</h2>
+                            </div>
+                            </div>
+                        </div>
+                    <div class="howit">
+			<div class="jRCarouselGallery"></div>
+		</div>
+<!--
+                        <div id="phone-content2">
+                            <div id="phone1">
+                                <div class="screen">
+                                    <div class="sscreen-1" style="left: -100%;"></div>
+                                    <div class="sscreen-2 old" style="left: -100%;"></div>
+                                    <div class="sscreen-3 active" style="left: 0px;"></div>
+                                </div>
+                            </div>
+                            <div class="carousel2">
+                                <a class=""></a>
+                                <a class=""></a>
+                                <a class="active"></a>
+                            </div>
+                        </div>
+-->
+<!--
+                       <div class="row">
+                            <div class="col-sm-6 secondpage-col">
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="product-work" id="how-it-works">
+                                    <ul class="work-list">
+                                        <li>
+                                            <!-- <div class="inner-work one"> -->
+<!--
+                                        <div class="number">1</div>
+                                        <h2 class="heading">Scan N Pay</h2>
+                                        <p>It's simple! Follow the mobile banking process of your bank!</p>
+
+                                     
+                                            <div class="step snap active" id="1">
+                                                <div class="number">1</div>
+                                                <h2 class="heading">Select</h2>
+                                                <p>Open SnipeBills and start adding products to your cart by just scanning the product's barcode </p>
+                                                <!-- <div class="number" onclick="setHowScreen(1)">1.</div> -->
+                                                <!--  <div class="image"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="step pay" id="2">
+                                                <div class="number">2</div>
+                                                <h2 class="heading">Scan</h2>
+                                                <p>Check the products in cart and confirm your order</p>
+                                                <!-- <div class="number" onclick="setHowScreen(1)">1.</div> 
+                                                <!-- <div class="image"></div> 
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="step go" id="3">
+                                                <div class="number">3</div>
+                                                <h2 class="heading">Pay</h2>
+                                                <p>That's it. You're done.</p>
+                                                <!-- <div class="number" onclick="setHowScreen(1)">1.</div> 
+                                                <!-- <div class="image"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    -->
+                </section>
+                <br>
+                <br>
+                <br>
+                <div class="container third-page">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="icon easy"></div>
+                            <h2>Time Efficient</h2>
+                            <p>SnipeBills understand the how precious is our customers time and we are always there to make shopping a deliteful experience.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="icon safe"></div>
+                            <h2>Safe</h2>
+                            <p>Your card details are encrypted and stored only on your phone — nowhere else.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="icon free"></div>
+                            <h2>Free</h2>
+                            <p>SnipeBills is free to download and there are no additional charges* when you use it.</p>
+                        </div>
+                        <p class="pull-right">*Your normal bank charges still apply</p>
+                    </div>
+                </div>
+                <section id="team" class="home-section text-center bg-gray">
+                    <div class="heading-about">
+                        <div class="container">
+                            
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                                        <div class="section-heading">
+                                            <h2>SnipeBills</h2>
+                                            <i class="fa fa-2x fa-angle-down"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                    <div class="container">
+<!--
+                        <div class="row">
+                            <div class="col-lg-2 col-lg-offset-5">
+                                <hr class="marginbot-50">
+                            </div>
+                        </div>
+-->
+                        
+                            <div class="container">
+                                <p>We know how important it is to enjoy what you do and where you work, you spend more time there than you do at home after all. So we pride ourselves on having a fun, dedicated team and making the SnipeBills a lovely place to be.<br> We @ SnipeBills are committed to provide best services so that our customers could enjoy fast, cashless payment system at retail stores.<br> We come from a diverse range of backgrounds. Some creative, some strategic and some technical but we are united in one obsession:<br><br> <strong>GREAT WORK THAT DELIVERS SUCCESS AND MAKES OUR LIFE EASIER!</strong></p>
+                            </div>
+                        
+                    </div>
+                    <div class="page">
+                        <div class="spacer"></div>
+                        <br>
+                        <h2 style="color:darkorange;">Core Team</h2>
+                                <div class="sectionSingle centreMe">
+                                    
+                                    
+                                    <div class="one-third">
+                                          <div class="flip"> 
+          <div class="card"> 
+              <div class="face front"> 
+                  <img src="css/images/pranjal.jpg" style="height:200px; width:200px;" class="img-circle"/>
+              </div> 
+              <div class="face back"> 
+                  <p style="margin-top:40%;"><strong>Co-founder & Developer</strong></p>
+              </div> 
+              
+          </div> 
+                                              <div class="team-initials"><h4>Pranjal Patil</h4></div>
+      </div> 
+
+                                    </div>
+                                    <div class="one-third">
+                                          <div class="flip"> 
+          <div class="card"> 
+              <div class="face front"> 
+                  <img src="css/images/jalaj.jpg" style="height:200px; width:200px;" class="img-circle"/>
+              </div> 
+              <div class="face back"> 
+                  <p style="margin-top:40%;"><strong>Co-founder & Developer</strong></p>
+              </div> 
+              
+          </div> 
+                                              <div class="team-initials"><h4>Jalaj Khajotia</h4></div>
+      </div> 
+
+                                    </div>
+                                    <div class="one-third">
+                                          <div class="flip"> 
+          <div class="card"> 
+              <div class="face front"> 
+                  <img src="css/images/syam.jpg" style="height:200px; width:200px;" class="img-circle"/>
+              </div> 
+              <div class="face back"> 
+                  <p style="margin-top:40%;"><strong>Co-founder & Designer</strong></p>
+              </div> 
+              
+          </div> 
+                                              <div class="team-initials"><h4>Syam Kumar</h4></div>
+      </div> 
+
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                </section>
+                <section class="snipeBillsIntro Fadein" id="faqs">
+                    <div class="heading-about">
+                        <div class="row" style="padding-top: 5%;">
+                               <div class="col-lg-4 col-lg-offset-4">
+                                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                                        <div class="section-heading">
+                                            <h3>Frequently Asked Questions!</h3>
+                                        </div>
+                                    </div>
+                            </div>
+                          </div>
+
+                    </div>
+                    <!-- page content start -->
+                    <div class="subMenuHolder Fadein" style="display: block;">
+                        <ul class="tabrow">
+                            <li class="snipebills Retailers selected">Faqs for Retailers</li>
+                            <li class="snipebills You">Faqs for Customers</li>
+                        </ul>
+                    </div>
+                    <div class="snipebillsForRetailers">
+                        <div class="clr"></div>
+                        <div class="container Fadein">
+                            <div class="page">
+                                <div class="sectionSingle centreMe">
+                                    <div id="users" class="tab-pane fade active in">
+                                        <div class="help-tabs-2">
+                                            <ul class="nav nav-pills top-margin-40">
+                                                <li class="active"><a data-toggle="pill" href="#home">Signing up</a></li>
+                                                <li class=""><a data-toggle="pill" href="#menu1">Accepting payments</a></li>
+                                                <li class=""><a data-toggle="pill" href="#menu2" id="safety-security-tab-nav">Managing your money</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-content">
+                                            <div id="home" class="tab-pane fade active in">
+                                                <div class="help-collapse">
+                                                    <ul class="top-margin-40">
+                                                        <li> <a role="button" data-toggle="collapse" href="#1" aria-expanded="false" aria-controls="collapseExample" class="">How do I sign up to use SnipeBills for my business?</a>
+                                                            <div class="collapse" id="1" aria-expanded="false">
+                                                                <p>We are very glad that you have choosen us to become a partners with you. You just have to drop a mail to us and one of our executive will get in touch with you.</p>
+                                                            </div>
+                                                        </li>
+                                                        <li> <a role="button" data-toggle="collapse" href="#2" aria-expanded="false" aria-controls="collapseExample" class="">What will it cost me to use SnipBills?</a>
+                                                            <div class="collapse" id="2" aria-expanded="false">
+                                                                <p>SnipBills does not charge merchants any signup or monthly subscription fees, nor do you require any additional hardware to use the service. The only cost involved with using SnipBills is a 8% transaction fee (incl. VAT) charged to the merchant.</p>
+
+
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div id="menu1" class="tab-pane fade">
+                                                <div class="help-collapse">
+                                                    <ul class="top-margin-40">
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">How do I know whether a customer’s payment has been successful?</a>
+                                                            <div class="collapse" id="collapseExample3">
+                                                                <p>Every time a customer successfully pay using SnipeBills, you will immediately receive payment confirmation via SMS.</p>
+                                                            </div>
+                                                        </li>                              
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample6" aria-expanded="false" aria-controls="collapseExample">What if I don’t receive an SMS or other form of notification?</a>
+                                                            <div class="collapse" id="collapseExample6">
+                                                                <p>Yes, you can query all transactions in orders tab.</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div id="menu2" class="tab-pane fade">
+                                                <div class="help-collapse">
+                                                    <ul class="top-margin-40">
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample8" aria-expanded="false" aria-controls="collapseExample">My customers are using SnipeBills to pay, but the funds are not reflecting in my account.</a>
+                                                            <div class="collapse" id="collapseExample8">
+                                                                <p>SnipeBills settles transaction amounts using a daily settlement system. At midnight each day, all transactions from the previous 24 hour period are tallied and transferred directly into your bank account.</p>
+                                                            </div>
+                                                        </li>                                                                                   
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                    </div>
+                    <div class="snipebillsForCustomers hidden">
+                        <div class="clr"></div>
+                        <div class="container Fadein">
+                            <div class="page">
+                                <div class="sectionSingle centreMe">
+                                    <div id="users" class="tab-pane fade active in">
+                                        <div class="help-tabs-2">
+                                            <ul class="nav nav-pills top-margin-40">
+                                                <li class="active"><a data-toggle="pill" href="#home">Getting Started</a></li>
+                                                <li class=""><a data-toggle="pill" href="#menu3">Using SnipeBills</a></li>
+                                                <li class=""><a data-toggle="pill" href="#menu4" id="safety-security-tab-nav">Safety &amp; Security</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-content">
+                                            <div id="home" class="tab-pane fade active in">
+                                                <div class="help-collapse">
+                                                    <ul class="top-margin-40">
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">How do i download?</a>
+                                                            <div class="collapse" id="collapseExample1">
+                                                                <p>You can easily download the app from google play store.</p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">How do I pay?</a>
+                                                            <div class="collapse" id="collapseExample2">
+                                                                <p>We currently have signed up with test merchant and we are expanding our services very fast. If you would like to know when we are available in your area? just drop a mail to us.</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div id="menu3" class="tab-pane fade">
+                                                <div class="help-collapse">
+                                                    <ul class="top-margin-40">
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample31" aria-expanded="false" aria-controls="collapseExample">Where can I use?</a>
+                                                            <div class="collapse" id="collapseExample31">
+                                                                <p>You can use SnipeBills where ever you see our logo inside retail stores. If you wish to find our affilated patners. You can get list from here.<a>---- </a></p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample41" aria-expanded="false" aria-controls="collapseExample">How do I show proof of payment?</a>
+                                                            <div class="collapse" id="collapseExample41">
+                                                                <p>A receipt will be generated as soon as you pay online on our app.</p>
+                                                            </div>
+                                                        </li>
+                                                        <!-- <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample5" aria-expanded="false" aria-controls="collapseExample">What happens if I pay wrong Amount?</a>
+                                                            <div class="collapse" id="collapseExample5">
+                                                                <p>You can contact us at <a href="mailto:help@SnipeBills.co.za">help@SnipeBills.co.za</a> if you wish to query a transaction.</p>
+                                                            </div>
+                                                                                                     </li> -->
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample61" aria-expanded="false" aria-controls="collapseExample">Can you query a transaction on my account?</a>
+                                                            <div class="collapse" id="collapseExample61">
+                                                                <p>Yes, you can query all transactions in orders tab.</p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample7" aria-expanded="false" aria-controls="collapseExample">Will SnipeBills work if there is no internet access?</a>
+                                                            <div class="collapse" id="collapseExample7">
+                                                                <p>No, currently we dont support that feature. But we are providing free wifi at our merchant patners.</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div id="menu4" class="tab-pane fade">
+                                                <div class="help-collapse">
+                                                    <ul class="top-margin-40">
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample81" aria-expanded="false" aria-controls="collapseExample">Is SnipeBills safe?</a>
+                                                            <div class="collapse" id="collapseExample81">
+                                                                <p>Yes, SnipeBills is completely safe and we will ensure that we protect information of our customers.</p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample92" aria-expanded="false" aria-controls="collapseExample">Why should I use SnipeBills rather than my card?</a>
+                                                            <div class="collapse" id="collapseExample92">
+                                                                <p>We are cashless and fast payment service providers. So it is super easy to shop with our app and checking out could never be so easy.</p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample101" aria-expanded="false" aria-controls="collapseExample">Who has access to my info?</a>
+                                                            <div class="collapse" id="collapseExample101">
+                                                                <p>Only you have access to the information you have saved in our app. We don't disclose your personal and secured information with anyone else.</p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <a role="button" data-toggle="collapse" href="#collapseExample112" aria-expanded="false" aria-controls="collapseExample">Can merchants charge me after making a payment to SnipeBills?</a>
+                                                            <div class="collapse" id="collapseExample112">
+                                                                <p>No, you will be only charged when you shop at one of our merchant patners. Only when you authorise merchant then he can debit amount from you account.</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                    
+                <section id="contact" class="home-section text-center">
+                    <div class="heading-contact">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                                        <div class="section-heading">
+                                            <h2>Get in touch</h2>
+                                            <i class="fa fa-2x fa-angle-down"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-2 col-lg-offset-5">
+                                <hr class="marginbot-50">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="boxed-grey">
+                                    <form id="contact-form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="name">
+                                                        Name</label>
+                                                    <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email">
+                                                        Email Address</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                                        </span>
+                                                        <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="subject">
+                                                        Subject</label>
+                                                    <select id="subject" name="subject" class="form-control" required="required">
+                                                        <option value="na" selected="">Choose One:</option>
+                                                        <option value="service">General Customer Service</option>
+                                                        <option value="suggestions">Suggestions</option>
+                                                        <option value="product">Product Support</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="name">
+                                                        Message</label>
+                                                    <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                                                    Send Message</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="widget-contact">
+                                    <h5>Main Office</h5>
+                                    <address>
+                                        <strong></strong>
+                                        <br> 1-11-21, Opposite jayabheri enclave
+                                        <br> Anjanah nagar, Hitech city
+                                        <br> Hyderabad
+                                        <br>
+                                        <abbr title="Phone">Ph :</abbr> 8179014226
+                                    </address>
+                                    <address>
+                                        <strong>Email</strong>
+                                        <br>
+                                        <a href="mailto:snipebillspayments@gmail.com">snipebillspayments@gmail.com</a>
+                                    </address>
+                                    <address>
+                                        <strong>We're on social networks</strong>
+                                        <br>
+                                        <ul class="company-social">
+                                            <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                            <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                            <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                                            <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- /container -->
+                <br>
+                <br>
+                <br>
+                <br>
+                <!-- Footer
+                  ================================================== -->
+                <hr>
+                <footer id="footer">
+                    <!--  <p class="pull-right"><a href="#top">Back to top</a></p> -->
+                </footer>
+            </body>
+
+            </html>
